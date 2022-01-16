@@ -7,17 +7,17 @@ import axios from 'axios';
 
 function App() {
 	const [data, setData] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(true); // create state to display loading spinner
 
 	useEffect(() => {
 		axios
 			.get(
-				'https://api.nasa.gov/planetary/apod?api_key=cfgS2rNLxj45HIqpi0UKpfHz1GpCJ0jtAXw9peBX&count=66'
+				`https://api.nasa.gov/planetary/apod?api_key=cfgS2rNLxj45HIqpi0UKpfHz1GpCJ0jtAXw9peBX&count=66`
 			)
 			.then((res) => {
 				console.log(res);
 				setData(res.data);
-				setIsLoading(false);
+				setIsLoading(false); // set loading to false once images have loaded
 			})
 			.catch((err) => {
 				console.log(err);
